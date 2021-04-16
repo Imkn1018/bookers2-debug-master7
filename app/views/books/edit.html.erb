@@ -1,0 +1,13 @@
+<%= form_with model:@book, local:true do |f| %>
+    <div class="error_form">
+        <label>Title</label>
+        <div class="error_field"><%= f.text_field :title %></div>
+    </div>
+    <div class="error_form">
+        <label>Body</label>
+        <div class="error_field"><%= f.text_area :body %></div>
+    </div>
+    <%= f.submit "Update Book" %>
+<% end  %>
+<%= link_to "Show", book_path %> | <%= link_to "Back", books_path  %>
+
