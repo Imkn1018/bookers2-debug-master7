@@ -47,6 +47,11 @@
         </ul>
      </div>
     </header>
+    <% if flash[:notice] %>
+    <div class="flash">
+        <p><%= flash[:notice] %></p>
+    </div>
+    <% end  %>
     <%= yield %>
     <footer class="col-md-offset-9 col-md-3">CopyRight Infratop.inc</footer>
   </body>

@@ -1,14 +1,4 @@
-Book index
-
-
-<h2>New Book</h2>
-<%= form_with model: @book, local:true do |f| %>
-  <h4>title</h4>
-  <%= f.text_field :title %>
-  <h4>opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit '投稿' %>
-<% end %>
+<%= render '/users/userInfo', user: @user,book: @book %>
 
 <!--Book Index-->
 <h2>Books</h2>

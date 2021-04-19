@@ -1,3 +1,9 @@
 
-
+<!--Signed in successfully.-->
 Books
+<% if flash[:notice] %>
+    <div class="flash">
+        <p><%= flash[:notice] %></p>
+    </div>
+<% end  %>
+<!-他と同じテーブルが用意される-->

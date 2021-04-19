@@ -1,3 +1,20 @@
+<% if flash[:notice] %>
+    <div class="flash">
+        <p><%= flash[:notice] %></p>
+    </div>
+<% end  %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+		<h2>User info</h2>
+		<%= render 'users/userInfo', user: @user %>
+		<h2>New book</h2>
+		<%= render 'books/newBook', books: @books %>
+		</div>
+	</div>
+</div>
+
 <h2>Book Detail</h2>
 <table class="table table-hover table-inverse">
   <thead>
@@ -13,8 +30,10 @@
       <td></td>
       <td><%= @book.title %></td>
       <td><%= @book.body %></td>
-      <td><%= link_to "Edit" , edit_book_path%></td>
-      <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+      <% if @user.id == current_user.id %>
+        <td><%= link_to "Edit" , edit_book_path%></td>
+        <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+      <%end%>
     </tr>
   </tbody>
 </table>
