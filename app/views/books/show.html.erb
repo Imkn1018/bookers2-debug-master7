@@ -1,39 +1,30 @@
-<% if flash[:notice] %>
-    <div class="flash">
-        <p><%= flash[:notice] %></p>
+<div class="container container px-5 px-sm-0">
+  <div class="row">
+    <!--Error-->
+    <%= render 'layouts/errors', error: @book %>
+    <div class="col-md-3">
+      <!--User info-->
+      <%= render 'users/userInfo', user: @user %>
+      <div class="row">
+    	  <%= link_to '',edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_path(@user) " %>
+  　   </div>
+      <!--Create a book-->
+      <%= render 'books/newBook', book: @books %>
     </div>
-<% end  %>
-
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-		<h2>User info</h2>
-		<%= render 'users/userInfo', user: @user %>
-		<h2>New book</h2>
-		<%= render 'books/newBook', books: @books %>
-		</div>
-	</div>
-</div>
-
-<h2>Book Detail</h2>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th></th>
-      <th>title</th>
-      <th>opinion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      <% if @user.id == current_user.id %>
-        <td><%= link_to "Edit" , edit_book_path%></td>
-        <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
-      <%end%>
-    </tr>
-  </tbody>
-</table>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book Detail</h2>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+            <% if @user.id == current_user.id %>
+              <td><%= link_to "Edit" , edit_book_path%></td>
+              <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+            <%end%>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
