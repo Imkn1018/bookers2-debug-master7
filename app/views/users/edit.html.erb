@@ -1,25 +1,25 @@
-<% if @user.errors.any? %>
-    <div class="error_modal">
-      <h2><%= @user.errors.count %>error prohibited this book from being saved:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-            <li>
-              <%= message %>
-            </li>
-        <% end %>
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= render 'layouts/errors', error: @user %>
+      <%= form_with model:@user, local:true do |f| %>
+        <div class="form-group">
+          <label for="user_name">Name</label>
+          <%= f.text_field :name, autofocus: true, class:"form-control name",id:"user_name" %>
+        </div>
+        <div class="form-group">
+          <label for="user_image">Image</label>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" , class:"form-control-file user_image ", id:"user_profile_image"%>
+        </div>
+        <div class="form-group">
+          <label for="user_introduction">Introduction</label>
+          <%= f.text_field :introduction, autofocus: true,class:"form-control user_introduction" ,id:"user_introduction"  %>
+        </div>
+        <div class="form-group">
+           <%= f.submit "Update User", class:"btn btn-secondary" %>
+        </div>
+      <% end %>
     </div>
-<% end  %>
-
-<!---共通->
-
-<h2>User info</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName"%>
-  <label for="inputImage">Image</label>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  <label for="inputName">Introduction</label>
-  <%= f.text_field :introduction, autofocus: true, id:"inputName"%>
-  <%= f.submit "Update User" %>
-<% end %>
+  </div>
+</div>

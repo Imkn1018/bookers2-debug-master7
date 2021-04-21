@@ -28,7 +28,19 @@ body {
     background-color: #fff;
 }
 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.table {
+    width: 100%;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
 .table thead th {
+    padding: 0.75rem;
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
 }
@@ -43,6 +55,9 @@ tbody {
     vertical-align: middle;
     border-color: inherit;
 }
+td {
+    word-wrap: break-word;
+}
 
 tr {
     display: table-row;
@@ -55,38 +70,14 @@ tr {
     width: 100%;
 }
 
-.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 .form-group {
     margin-bottom: 1rem;
 }
-// .row {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin-right: -15px;
-//     margin-left: -15px;
-// }
 
-// .col-md-3 {
-//     flex: 0 0 25%;
-//     max-width: 25%;
-// }
+.error_explanation{
+    color: red;
+}
 
-// .mt-3, .my-3 {
-//     margin-top: 1rem !important;
-// }
-// .container{
-//     width: 100%;
-//     padding-right: 15px;
-//     padding-left: 15px;
-//     margin-right: auto;
-//     margin-left: auto;
-
-// }
-
+.flash {
+    color: green;
+}
