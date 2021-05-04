@@ -19,10 +19,12 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
+
   end
 
   def show
     @book = Book.find(params[:id])
+    @post_comment = PostComment.new
     @user = @book.user
     @books = Book.new
   end
@@ -46,7 +48,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
-  
+
 # private---------------------------------------
   private
 
