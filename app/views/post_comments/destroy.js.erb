@@ -1,0 +1,2 @@
+$("#comments-<%= @book.id %>").html("<%= j(render partial: 'post_comments/index', locals: {book: @book} )%>")
+$('#post_comment_comment').val("");
